@@ -1,5 +1,5 @@
 package edu.mum.cs.waa.domain;
 
-public class Client implements Role {
+public class Client extends Role {
 
 }

@@ -1,5 +1,7 @@
 package edu.mum.cs.waa.controller;
 
+import edu.mum.cs.waa.domain.Client;
+import edu.mum.cs.waa.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,7 @@ public class SubscriptionController {
     }
 
     @RequestMapping(value = "/joinForm", method = RequestMethod.GET)
-    public String joinForm(@ModelAttribute("newMember")){
+    public String joinForm(@ModelAttribute("newMember") User user) {
         return "subscription/form";
     }
 }

@@ -17,16 +17,16 @@ public class User {
     private LocalDateTime dateCreated;
     private Status status;
 
-    @OneToMany
-    private List<Role> roles;
+    //@OneToMany
+    //private List<Role> roles;
 
-    public List<Role> getRoles() {
+    /*public List<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
-    }
+    }*/
 
     public long getId() {
         return id;

@@ -24,13 +24,12 @@
 
 				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="employeeNumber"> Employee Number</label>
+					<label class="control-label col-lg-2" for="firstName">Email</label>
 					<div class="col-lg-10">
-						<form:input id="employeeNumber" type="text" class="form:input-large"/>
-						<form:errors cssClass="text-danger"/>
+						<form:input id="email" path="email" type="text" class="form:input-large"/>
+						<form:errors path="email" cssClass="text-danger"/>
 					</div>
 				</div>
-
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="firstName">First Name</label>
 					<div class="col-lg-10">
@@ -45,26 +44,6 @@
 						<div class="form:input-prepend">
 							<form:input id="lastName" path="lastName" type="text" class="form:input-large"/>
 							<form:errors path="lastName" cssClass="text-danger"/>
-						</div>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="City">City</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="City" path="address.city" type="text" class="form:input-large"/>
-							<form:errors path="address.city" cssClass="text-danger"/>
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="State">State</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="State" path="address.state" type="text" class="form:input-large"/>
-							<form:errors path="address.state" cssClass="text-danger"/>
 						</div>
 					</div>
 				</div>
