@@ -1,4 +1,4 @@
 package edu.mum.cs.waa.domain;
 
-public class Staff implements Role {
+public class Staff extends Role {
 }

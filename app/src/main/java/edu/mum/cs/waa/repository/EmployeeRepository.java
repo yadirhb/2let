@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 	@Query("select e from Employee  e where e.id= :id")
-	public Employee findByEmployeeNumber(@Param("id") Long employeeNumber);
+	Employee findByEmployeeNumber(@Param("id") Long employeeNumber);
 }

@@ -1,4 +1,3 @@
 package edu.mum.cs.waa.domain;
 
-public enum Status { ACTIVE, DISABLED
-}
+public enum Status { ACTIVE, DISABLED}
