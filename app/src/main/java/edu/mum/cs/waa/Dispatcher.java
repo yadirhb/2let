@@ -1,5 +1,6 @@
 package edu.mum.cs.waa;
 
+import edu.mum.cs.waa.interceptor.NoticeInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,14 +10,8 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.core.env.Environment;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
-import edu.mum.cs.waa.interceptor.NoticeInterceptor;
 
 @EnableWebMvc
 @Configuration

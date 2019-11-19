@@ -3,13 +3,13 @@ package edu.mum.cs.waa.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-  
+
 @Controller
 public class AccessDeniedController {
-	
-  	@RequestMapping({"/accessDenied"})
+
+	@RequestMapping({ "/accessDenied" })
 	public String welcome(Model model) {
 		return "error-forbidden";
 	}
-	
+
 }

@@ -1,11 +1,6 @@
 package edu.mum.cs.waa;
 
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.dozer.DozerBeanMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +14,11 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.sql.DataSource;
+import java.util.Properties;
+
+//import org.dozer.DozerBeanMapper;
 
 @Configuration
 @EnableTransactionManagement
@@ -54,11 +54,6 @@ public class Persistence {
 
 	private Properties getJpaProperties() {
 		return new Properties() {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
 			{
 				setProperty("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
 				setProperty("hibernate.hbm2ddl.import_files", environment.getProperty("import.sql"));
