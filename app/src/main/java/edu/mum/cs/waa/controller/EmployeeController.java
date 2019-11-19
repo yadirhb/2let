@@ -1,7 +1,7 @@
 package edu.mum.cs.waa.controller;
 
-import javax.validation.Valid;
-
+import edu.mum.cs.waa.domain.Employee;
+import edu.mum.cs.waa.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.mum.cs.waa.domain.Employee;
-import edu.mum.cs.waa.service.EmployeeService;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping({ "/employees" })

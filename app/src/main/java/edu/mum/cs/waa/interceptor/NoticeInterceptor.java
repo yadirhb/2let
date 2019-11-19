@@ -1,12 +1,11 @@
 package edu.mum.cs.waa.interceptor;
 
-import java.security.Principal;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import java.security.Principal;
 
 public class NoticeInterceptor extends HandlerInterceptorAdapter {
 
