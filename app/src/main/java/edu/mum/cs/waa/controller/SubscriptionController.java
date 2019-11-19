@@ -1,6 +1,5 @@
 package edu.mum.cs.waa.controller;
 
-import edu.mum.cs.waa.domain.Client;
 import edu.mum.cs.waa.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
