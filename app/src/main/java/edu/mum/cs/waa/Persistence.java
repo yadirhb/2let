@@ -54,11 +54,6 @@ public class Persistence {
 
 	private Properties getJpaProperties() {
 		return new Properties() {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
 			{
 				setProperty("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
 				setProperty("hibernate.hbm2ddl.import_files", environment.getProperty("import.sql"));

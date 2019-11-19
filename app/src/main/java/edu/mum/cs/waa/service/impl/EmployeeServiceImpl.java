@@ -11,22 +11,22 @@ import edu.mum.cs.waa.repository.EmployeeRepository;
 import edu.mum.cs.waa.service.EmployeeService;
 
 @Service
-@Transactional 
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
-	
- 	@Autowired
+
+	@Autowired
 	private EmployeeRepository employeeRepository;
 
 	public void save(Employee employee) {
 		employeeRepository.save(employee);
 	}
+
 	public List<Employee> findAll() {
-		return (List<Employee>)employeeRepository.findAll();
+		return (List<Employee>) employeeRepository.findAll();
 	}
 
 	public Employee findByEmployeeNumber(Long employeeId) {
 		return employeeRepository.findByEmployeeNumber(employeeId);
 	}
- 
 
 }
