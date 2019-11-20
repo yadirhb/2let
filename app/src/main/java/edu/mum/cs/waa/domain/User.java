@@ -1,6 +1,7 @@
 package edu.mum.cs.waa.domain;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,18 +16,28 @@ public class User {
     private String password;
     private String imageUrl;
     private LocalDateTime dateCreated;
-    private Status status;
+    private Status status = Status.DISABLED;
 
-    //@OneToMany
-    //private List<Role> roles;
+    private LocalDate dateOfBirth;
 
-    /*public List<Role> getRoles() {
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    @ManyToMany
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
-    }*/
+    }
 
     public long getId() {
         return id;

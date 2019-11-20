@@ -15,4 +15,4 @@ Create a new MySql schema named 2let_db.
 
 ### DB user info
 
-Use mysql and create and user dbuser with password 'dbuser'. We are not using root users to test our app.
+Use mysql and create and user root with password 'root'.

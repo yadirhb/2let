@@ -30,6 +30,7 @@
 						<form:errors path="email" cssClass="text-danger"/>
 					</div>
 				</div>
+
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="firstName">First Name</label>
 					<div class="col-lg-10">
@@ -44,6 +45,16 @@
 						<div class="form:input-prepend">
 							<form:input id="lastName" path="lastName" type="text" class="form:input-large"/>
 							<form:errors path="lastName" cssClass="text-danger"/>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="dateOfBirth">Date of birth</label>
+					<div class="col-lg-10">
+						<div class="form:input-prepend">
+							<form:input type="date" id="dateOfBirth" path="dateOfBirth" class="form:input-large"/>
+							<form:errors path="dateOfBirth" cssClass="text-danger"/>
 						</div>
 					</div>
 				</div>
