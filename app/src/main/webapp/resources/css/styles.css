@@ -1,3 +1,17 @@
 .mainContainer {
     background-color: red;
 }
+
+.navbar{
+    padding: 5px;
+    background: #eeeeee;
+}
+
+footer{
+    background: #eeeeee;
+    padding: 5px;
+}
+
+.main{
+    margin-top: 80px;
+}
