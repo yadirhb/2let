@@ -10,10 +10,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
+    @Column(name = "password", nullable = false)
+    private String password;
     private String email;
     private String firstName;
     private String lastName;
-    private String password;
     private String imageUrl;
     private LocalDateTime dateCreated;
     private Status status = Status.DISABLED;
@@ -28,7 +31,9 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    @ManyToMany
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="username", referencedColumnName= "username")
     private List<Role> roles;
 
     public List<Role> getRoles() {
@@ -102,4 +107,13 @@ public class User {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
 }

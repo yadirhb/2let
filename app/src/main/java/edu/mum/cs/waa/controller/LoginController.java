@@ -17,10 +17,15 @@ public class LoginController {
 
 	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
 	public String loginerror(Model model) {
-
 		model.addAttribute("error", "true");
 		return "login";
 
+	}
+
+	@RequestMapping(value = "/postlogin", method = RequestMethod.POST)
+	public String loginPost(@ModelAttribute("credentials") Credentials credentials) {
+		System.out.println("Login here ... ");
+		return "login";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
