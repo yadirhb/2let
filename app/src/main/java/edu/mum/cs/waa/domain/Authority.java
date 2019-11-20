@@ -11,6 +11,7 @@ public class Authority {
 	private int id;
 
 	private String username;
+
   	@Column(name = "AUTHORITY", nullable = false)
  	private String authority;
  	

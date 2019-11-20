@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.List;
 
  
-@Entity(name = "USERS")
+@Entity(name = "credentials")
 public class Credentials {
 
 	 @Id
 	 @Column(name = "username", nullable = false, unique = true)
  	String username;
-	 @Column(name = "PASSWORD", nullable = false)
+	 @Column(name = "password", nullable = false)
 	String password;
 	String verifyPassword;
 	Boolean enabled;

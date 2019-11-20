@@ -1,17 +1,17 @@
 package edu.mum.cs.waa.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name="roles")
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "role", nullable = false)
     private String name;
+
+    private String username;
 
     private String description;
 
@@ -37,5 +37,13 @@ public class Role {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
