@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
  
-@Entity(name = "USERS")
+@Entity(name = "USERS_")
 public class Credentials {
 
 	 @Id
