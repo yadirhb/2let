@@ -109,6 +109,10 @@
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

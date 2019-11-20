@@ -16,4 +16,13 @@ public class HomeController {
 		return "welcome";
 	}
 
+	@RequestMapping({"item"})
+	public String item(Model model) {
+		return "pages/item";
+	}
+
+	@RequestMapping(value = "/pages/clients")
+	public String clients(Model model) {
+		return "pages/clients";
+	}
 }
