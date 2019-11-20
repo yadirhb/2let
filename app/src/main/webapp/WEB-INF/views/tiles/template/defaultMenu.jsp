@@ -8,7 +8,7 @@
 <nav>
     <ul id="menu">
         <li><a href="${pageContext.request.contextPath}/">Home</a></li>
-        <li><a href="${pageContext.request.contextPath}/products">Products</a></li>
-        <li><a href="${pageContext.request.contextPath}/contactus">Contact Us</a></li>
+        <li><a href="${pageContext.request.contextPath}/item">Item</a></li>
+        <li><a href="${pageContext.request.contextPath}/page/clients">Clients</a></li>
     </ul>
 </nav>
