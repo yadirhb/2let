@@ -6,21 +6,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Products</title>
+<title>Membership</title>
 </head>
 <body>
 	<section>
 		<div class="jumbotron">
 			<div class="container">
-				<h1>Valued Employees</h1>
-				<p>Add a new one<p>
+				<h1>Fulfill membership</h1>
+				<p>Add your information<p>
 			</div>
 		</div>
 	</section>
 	<section class="container">
-		<form:form  modelAttribute="newMember" class="form-horizontal"  >
+		<form:form  modelAttribute="newMember" class="form-horizontal" action="join?type=${type}" >
 			<fieldset>
-				<legend>New employee</legend>
+				<legend>New member</legend>
 
 				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 				<div class="form-group">
@@ -61,7 +61,7 @@
 								
  				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
+						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Subscribe"/>
 					</div>
 				</div>
 				

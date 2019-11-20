@@ -1,8 +1,12 @@
 package edu.mum.cs.waa.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.time.LocalDate;
+import javax.validation.constraints.Past;
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity(name = "users")
@@ -24,20 +28,27 @@ public class User {
     private LocalDateTime dateCreated;
     private Status status = Status.DISABLED;
 
-    private LocalDate dateOfBirth;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Past
+    private Date dateOfBirth;
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public User() {
+        super();
+        roles = new LinkedList<>();
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public User(Role role) {
+        this();
+        roles.add(role);
     }
-
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="username", referencedColumnName= "username")
     private List<Role> roles;
+
+    public void addRole(Role role) {
+        this.roles.add(role);
+    }
 
     public List<Role> getRoles() {
         return roles;
@@ -45,6 +56,14 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public long getId() {

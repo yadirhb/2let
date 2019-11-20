@@ -1,5 +1,7 @@
 package edu.mum.cs.waa.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 
 @Entity(name="roles")
@@ -9,6 +11,7 @@ public class Role {
     private Long id;
 
     @Column(name = "role", nullable = false)
+    @NotEmpty
     private String name;
 
     private String username;
