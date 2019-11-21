@@ -1,43 +1,72 @@
 package edu.mum.cs.waa.domain;
 
+import edu.mum.cs.waa.validation.UniqueEmail;
+import edu.mum.cs.waa.validation.UniqueUsername;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.time.LocalDate;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity(name = "users")
-public class User {
+public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "username", nullable = false, unique = true)
+    @NotEmpty
+    @UniqueUsername(message = "This user name is already taken.")
     private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
-    private Boolean enabled;
+
+    private Boolean enabled = false;
+
+    @NotEmpty
+    @Email
+    @UniqueEmail(message = "This email is already registered.")
     private String email;
+
+    @NotEmpty
     private String firstName;
+
+    @NotEmpty
     private String lastName;
+
     private String imageUrl;
     private LocalDateTime dateCreated;
     private Status status = Status.DISABLED;
 
-    private LocalDate dateOfBirth;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Past
+    @NotNull
+    private Date dateOfBirth;
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public User() {
+        super();
+        roles = new LinkedList<>();
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public User(Role role) {
+        this();
+        roles.add(role);
     }
 
-
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="username", referencedColumnName= "username")
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Role> roles;
+
+    public void addRole(Role role) {
+        if (role != null) this.roles.add(role);
+    }
 
     public List<Role> getRoles() {
         return roles;
@@ -47,11 +76,19 @@ public class User {
         this.roles = roles;
     }
 
-    public long getId() {
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

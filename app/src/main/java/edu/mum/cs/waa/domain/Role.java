@@ -1,17 +1,31 @@
 package edu.mum.cs.waa.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity(name="roles")
-public class Role {
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "role", nullable = false)
+    @NotEmpty
     private String name;
 
-    private String username;
+    public List<User> getUser() {
+        return user;
+    }
+
+    public void setUser(List<User> user) {
+        this.user = user;
+    }
+
+    @ManyToMany(mappedBy = "roles")
+    private List<User> user;
 
     private String description;
 
@@ -37,13 +51,5 @@ public class Role {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 }

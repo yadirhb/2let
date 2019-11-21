@@ -12,6 +12,33 @@ footer{
     padding: 5px;
 }
 
-.main{
+.main {
     margin-top: 80px;
+}
+
+.memberships {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+}
+
+.card {
+    background-color: #ececec;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    color: black;
+}
+
+.card > .title {
+    text-align: center;
+    font-weight: bold;
+    margin: 20px
+}
+
+.primary {
+    color: darkblue;
 }

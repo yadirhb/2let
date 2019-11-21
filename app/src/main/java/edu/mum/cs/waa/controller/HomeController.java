@@ -13,6 +13,7 @@ public class HomeController {
 		model.addAttribute("greeting", "Welcome to the Lone Ranger Company, Kimosabe!!");
 		model.addAttribute("tagline", "The one and only place to work, so you can live and play!!");
 
+
 		return "welcome";
 	}
 
