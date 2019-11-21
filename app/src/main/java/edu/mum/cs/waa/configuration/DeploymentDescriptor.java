@@ -1,7 +1,7 @@
 package edu.mum.cs.waa.configuration;
 
 import edu.mum.cs.waa.Persistence;
-import edu.mum.cs.waa.Security;
+import edu.mum.cs.waa.security.Security;
 import edu.mum.cs.waa.Service;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
