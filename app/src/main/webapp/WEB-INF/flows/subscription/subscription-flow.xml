@@ -31,11 +31,11 @@
     <!-- result="order.orderId" saves result of expression -->
     <action-state id="processSubscriptionRequest">
         <evaluate expression="subscriptionWebFlowHelper.processSubscriptionRequest(subscription)"
-                  result="subscription.id"/>
+                  result="subscription"/>
         <transition to="thankCustomer"/>
     </action-state>
 
-    <view-state id="thankCustomer" model="user" view="success.jsp">
+    <view-state id="thankCustomer" model="subscription" view="success.jsp">
         <transition to="endState"/>
     </view-state>
 

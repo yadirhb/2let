@@ -22,10 +22,6 @@ public class Subscription implements Serializable {
         return member;
     }
 
-    public void setMember(User member) {
-        this.member = member;
-    }
-
     public Subscription() {
         super();
         this.member = new User();
@@ -50,5 +46,9 @@ public class Subscription implements Serializable {
 
     public void setType(SubscriptionType type) {
         this.type = type;
+    }
+
+    public void setMember(User member) {
+        this.member = member;
     }
 }

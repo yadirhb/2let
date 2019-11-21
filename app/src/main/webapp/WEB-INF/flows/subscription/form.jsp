@@ -25,10 +25,18 @@
 
 				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="firstName">Email</label>
+					<label class="control-label col-lg-2" for="email">Email</label>
 					<div class="col-lg-10">
 						<form:input id="email" path="email" type="email" class="form:input-large"/>
 						<form:errors path="email" cssClass="text-danger"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="username">Username</label>
+					<div class="col-lg-10">
+						<form:input id="username" path="username" type="text" class="form:input-large"/>
+						<form:errors path="username" cssClass="text-danger"/>
 					</div>
 				</div>
 

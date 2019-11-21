@@ -21,15 +21,22 @@
 <section>
     <div class="jumbotron">
         <div class="container">
-            <h1>Subscription Confirmation</h1>
+            <h1>Successful request!</h1>
         </div>
     </div>
 </section>
 <section class="container">
 <div>
-    <form:form modelAttribute="subscription" class="form-horizontal">
+    <pre>
+        Dear ${subscription.member.firstName},
 
-    </form:form>
+        We are really excited for your request but we need to verify your information. We are going to send you an email after reviewing your request to continue with the process.
+        Joyful,
+
+        2Let Team.
+    </pre>
+
+    <a href="<spring:url value="/"/>">Go to Home</a>
 </div>
 </section>
 </body>

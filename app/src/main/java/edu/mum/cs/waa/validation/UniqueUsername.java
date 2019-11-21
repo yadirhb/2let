@@ -5,11 +5,11 @@ import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = UniqueEmailValidator.class)
+@Constraint(validatedBy = UniqueUsernameValidator.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UniqueEmail {
-    String message() default "{edu.mum.cs.waa.validation.UniqueEmail}";
+public @interface UniqueUsername {
+    String message() default "{edu.mum.cs.waa.validation.UniqueUsername}";
 
     Class<?>[] groups() default {};
 

@@ -1,6 +1,7 @@
 package edu.mum.cs.waa.domain;
 
 import edu.mum.cs.waa.validation.UniqueEmail;
+import edu.mum.cs.waa.validation.UniqueUsername;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,16 +18,18 @@ import java.util.List;
 @Entity(name = "users")
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "username", nullable = false, unique = true)
+    @NotEmpty
+    @UniqueUsername(message = "This user name is already taken.")
     private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
 
-    private Boolean enabled;
+    private Boolean enabled = false;
 
     @NotEmpty
     @Email
@@ -38,6 +41,7 @@ public class User implements Serializable {
 
     @NotEmpty
     private String lastName;
+
     private String imageUrl;
     private LocalDateTime dateCreated;
     private Status status = Status.DISABLED;
@@ -57,12 +61,11 @@ public class User implements Serializable {
         roles.add(role);
     }
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="username", referencedColumnName= "username")
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Role> roles;
 
     public void addRole(Role role) {
-        this.roles.add(role);
+        if (role != null) this.roles.add(role);
     }
 
     public List<Role> getRoles() {
@@ -81,11 +84,11 @@ public class User implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
