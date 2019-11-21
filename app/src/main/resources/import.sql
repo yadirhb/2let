@@ -11,3 +11,8 @@ INSERT INTO credentials (username,password,enabled) VALUES ('admin','$2a$10$S/wl
 INSERT INTO authorities (ID,username, authority) VALUES (1,'guest', 'ROLE_USER');
 INSERT INTO authorities (ID,username, authority) VALUES (2,'admin', 'ROLE_ADMIN');
 INSERT INTO authorities (ID,username, authority) VALUES (3,'admin', 'ROLE_USER');
+INSERT INTO authorities (ID,username, authority) VALUES (3,'savanahc', 'ROLE_USER');
+INSERT INTO authorities (ID,username, authority) VALUES (3,'sarahj', 'ROLE_USER');
+
+INSERT INTO users(id, dateCreated, dateOfBirth, email, enabled, firstName, imageUrl, lastName, password, status, username) VALUES (1,Now(),Now(),'cy@gmail.com',1,'Savanah','','Caroline','',1,'savanahc')
+INSERT INTO users(id, dateCreated, dateOfBirth, email, enabled, firstName, imageUrl, lastName, password, status, username) VALUES (1,Now(),Now(),'sarah@gmail.com',1,'Sarah','','Josephs','',1,'sarahj')

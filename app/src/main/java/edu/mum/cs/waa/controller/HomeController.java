@@ -25,4 +25,10 @@ public class HomeController {
 	public String clients(Model model) {
 		return "pages/clients";
 	}
+
+	@RequestMapping(value = "users")
+	public String users(Model model) {
+		return "users/list";
+	}
+
 }

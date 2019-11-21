@@ -1,3 +1,4 @@
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Duncan
@@ -8,7 +9,8 @@
 <nav>
     <ul id="menu">
         <li><a href="${pageContext.request.contextPath}/">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/users">Users</a></li>
         <li><a href="${pageContext.request.contextPath}/item">Item</a></li>
-        <li><a href="${pageContext.request.contextPath}/page/clients">Clients</a></li>
+        <li><a href="${pageContext.request.contextPath}/pages/clients">Clients</a></li>
     </ul>
 </nav>
