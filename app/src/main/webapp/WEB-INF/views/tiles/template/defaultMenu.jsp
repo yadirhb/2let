@@ -12,5 +12,9 @@
         <li><a href="${pageContext.request.contextPath}/users">Users</a></li>
         <li><a href="${pageContext.request.contextPath}/item">Item</a></li>
         <li><a href="${pageContext.request.contextPath}/pages/clients">Clients</a></li>
+        <li><a href=“${pageContext.request.contextPath}/areaManagement”>Areas</a></li>
+        <li><a href=“${pageContext.request.contextPath}/centersManagement”>Centers</a></li>
+        <li><a href=“${pageContext.request.contextPath}/chainManagement”>Chains</a></li>
     </ul>
+
 </nav>
