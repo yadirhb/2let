@@ -1,12 +1,12 @@
-package edu.mum.cs.waa.service.impl;
+package edu.mum.cs.waa.helpers;
 
 import edu.mum.cs.waa.domain.Subscription;
 import edu.mum.cs.waa.domain.SubscriptionType;
-import edu.mum.cs.waa.repository.SubscriptionRepository;
+import edu.mum.cs.waa.domain.User;
+import edu.mum.cs.waa.service.RoleService;
 import edu.mum.cs.waa.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Component;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -14,25 +14,34 @@ import javax.validation.Valid;
 import javax.validation.Validator;
 import java.util.Set;
 
-@Service
-@Transactional
-public class SubscriptionServiceImpl implements SubscriptionService {
+@Component
+public class SubscriptionWebFlowHelper {
+
     @Autowired
     private Validator validator;
 
     @Autowired
-    private SubscriptionRepository subscriptionRepository;
+    private SubscriptionService subscriptionService;
 
-    @Override
+    @Autowired
+    private RoleService roleService;
+
     public SubscriptionType[] getMembershipTypes() {
-        return SubscriptionType.values();
+        return subscriptionService.getMembershipTypes();
     }
 
-    @Override
-    public Subscription requestMembership(@Valid Subscription subscription) {
+    public Subscription processSubscriptionRequest(@Valid Subscription subscription) {
         Set<ConstraintViolation<Subscription>> violations = validator.validate(subscription);
 
         if (!violations.isEmpty()) throw new ConstraintViolationException(violations);
-        return subscriptionRepository.save(subscription);
+
+        User member = subscription.getMember();
+
+        member.addRole(roleService.getRoleByName("ROLE_USER"));
+
+        //member.setUsername();
+
+        return subscriptionService.requestMembership(subscription);
     }
+
 }

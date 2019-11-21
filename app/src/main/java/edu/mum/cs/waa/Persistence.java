@@ -18,8 +18,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-//import org.dozer.DozerBeanMapper;
-
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("edu.mum.cs.waa.repository")

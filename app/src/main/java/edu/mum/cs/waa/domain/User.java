@@ -1,16 +1,22 @@
 package edu.mum.cs.waa.domain;
 
+import edu.mum.cs.waa.repository.SubscriptionRepository;
+import edu.mum.cs.waa.validation.UniqueEmail;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 @Entity(name = "users")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -20,9 +26,18 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
+
     private Boolean enabled;
+
+    @NotEmpty
+    @Email
+    @UniqueEmail
     private String email;
+
+    @NotEmpty
     private String firstName;
+
+    @NotEmpty
     private String lastName;
     private String imageUrl;
     private LocalDateTime dateCreated;
@@ -30,6 +45,7 @@ public class User {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Past
+    @NotNull
     private Date dateOfBirth;
 
     public User() {

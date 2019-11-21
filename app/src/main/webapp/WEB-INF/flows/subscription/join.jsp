@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Join</title>
@@ -27,15 +28,23 @@
 </section>
 <section class="container memberships">
     <c:forEach var="membership" items="${memberships}">
-        <a href="<spring:url value='/subscription/join?type=${membership}' />" class="card">
-
+        <form:form model="subscription" class="card">
+            <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}"/>
+            <input type="hidden" name="type" value="${membership}"/>
             <span class="title primary">
                 <c:out
                         value="${membership}">Membership</c:out>
             </span>
             <p>Membership description</p>
-        </a>
+            <input type="submit" class="btn btn-primary" value="Subscribe" name="_eventId_membershipSelected"/>
+        </form:form>
     </c:forEach>
 </section>
+<div align="center">
+    <form:form>
+        <button id="btnCancel" class="btn btn-default" name="_eventId_subscriptionCancelled">Cancel</button>
+    </form:form>
+</div>
+
 </body>
 </html>
