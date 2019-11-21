@@ -1,9 +1,6 @@
 package edu.mum.cs.waa.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Item {
@@ -16,6 +13,18 @@ public class Item {
     private String description;
     private Status status;
     private String imageUrl;
+
+    @ManyToOne
+    @JoinColumn(name ="category_id")
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public long getId() {
         return id;
