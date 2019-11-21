@@ -13,7 +13,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UserRepository repository;
+    private UserRepository repository;
 
     @Override
     public List<User> getUsers() {
@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByEmail(String email) {
-        return repository.findUserByEmail(email);
+        return repository.findByEmail(email);
     }
 
     @Override

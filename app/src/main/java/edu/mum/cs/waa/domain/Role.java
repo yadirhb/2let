@@ -8,6 +8,7 @@ import java.util.List;
 
 @Entity(name="roles")
 public class Role implements Serializable {
+    private static final long serialVersionUID = 2L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

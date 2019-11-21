@@ -27,7 +27,8 @@
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="email">Email</label>
 					<div class="col-lg-10">
-						<form:input id="email" path="email" type="email" class="form:input-large"/>
+						<form:input id="email" path="email" type="email" class="form:input-large"
+									onblur="validateEmail(this)"/>
 						<form:errors path="email" cssClass="text-danger"/>
 					</div>
 				</div>
@@ -35,7 +36,8 @@
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="username">Username</label>
 					<div class="col-lg-10">
-						<form:input id="username" path="username" type="text" class="form:input-large"/>
+						<form:input id="username" path="username" type="text" class="form:input-large"
+									onblur="validateUsername(this)"/>
 						<form:errors path="username" cssClass="text-danger"/>
 					</div>
 				</div>
@@ -84,5 +86,8 @@
 			</fieldset>
 		</form:form>
 	</section>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="<spring:url value="/resource/js/user.js"/>"></script>
 </body>
 </html>
