@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends CrudRepository<User,Long> {
+
     @Query("SELECT user FROM users user where user.username=:username OR user.email = :username")
     User findByUsernameOrEmail(String username);
+
+    User findUserByEmail(String email);
+
+    User findUserByUsername(String username);
 }

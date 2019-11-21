@@ -13,8 +13,9 @@ public class HomeController {
 	@RequestMapping({ "/", "/welcome" })
 	public String welcome(Model model, Authentication authentication) {
 
-		model.addAttribute("greeting", "Welcome to the Lone Ranger Company, Kimosabe!!");
-		model.addAttribute("tagline", "The one and only place to work, so you can live and play!!");
+		model.addAttribute("greeting", "Welcome to 2Let, the ultimate recreational experience!!!");
+		model.addAttribute("tagline", "The one and only place to enjoy, to live and play!!");
+
 
 		if (authentication != null) {
 			for(GrantedAuthority grant: authentication.getAuthorities()) {

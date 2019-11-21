@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.springframework.org/schema/webflow"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+							http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <!-- Flow level variable definition SO flow scope -->
+    <var name="subscription" class="edu.mum.cs.waa.domain.Subscription"/>
+
+    <on-start>
+        <evaluate expression="subscriptionWebFlowHelper.getMembershipTypes()"
+                  result="flowScope.memberships"/>
+    </on-start>
+
+    <!-- First "state" listed is first executed - unless <on-start> -->
+    <view-state id="selectMembership" view="join.jsp" model="subscription">
+        <transition on="membershipSelected" to="collectMemberInfo" validate="false"/>
+        <transition on="subscriptionCancelled" to="cancelSubscription" validate="false"/>
+    </view-state>
+
+    <view-state id="collectMemberInfo" view="form.jsp" model="subscription">
+        <transition on="memberInfoCollected" to="subscriptionConfirmation"/>
+        <transition on="backToSelectMembership" to="selectMembership" validate="false"/>
+    </view-state>
+
+    <view-state id="subscriptionConfirmation" model="subscription" view="confirmation.jsp">
+        <transition on="subscriptionConfirmed" to="processSubscriptionRequest"/>
+        <transition on="backToCollectMemberDetail" to="collectMemberInfo"/>
+    </view-state>
+
+    <!-- result="order.orderId" saves result of expression -->
+    <action-state id="processSubscriptionRequest">
+        <evaluate expression="subscriptionWebFlowHelper.processSubscriptionRequest(subscription)"
+                  result="subscription"/>
+        <transition to="thankCustomer"/>
+    </action-state>
+
+    <view-state id="thankCustomer" model="subscription" view="success.jsp">
+        <transition to="endState"/>
+    </view-state>
+
+    <end-state id="endState"/>
+
+    <end-state id="cancelSubscription" view="cancel.jsp"/>
+
+    <global-transitions>
+        <transition on="cancel" to="cancelSubscription"/>
+    </global-transitions>
+
+</flow>

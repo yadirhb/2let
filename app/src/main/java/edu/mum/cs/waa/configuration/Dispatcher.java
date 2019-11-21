@@ -2,10 +2,7 @@ package edu.mum.cs.waa.configuration;
 
 import edu.mum.cs.waa.interceptor.PerformanceMonitorInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.validation.Validator;
@@ -19,8 +16,9 @@ import org.springframework.web.servlet.view.tiles3.TilesView;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = { "edu.mum.cs.waa.controller" })
+@ComponentScan(basePackages = {"edu.mum.cs.waa"})
 @PropertySource(value = "classpath:application.properties")
+@ImportResource("classpath:/config/webflow-context.xml")
 public class Dispatcher extends WebMvcConfigurerAdapter {
 
 	@Autowired

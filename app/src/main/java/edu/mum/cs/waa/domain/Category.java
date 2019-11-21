@@ -1,4 +1,5 @@
 package edu.mum.cs.waa.domain;
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
@@ -8,11 +9,20 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    private String code;
     private String description;
     private Status status;
 
-    @JoinColumn
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+
+    @OneToMany(mappedBy="category",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Item> items;
 
     public long getId() {
