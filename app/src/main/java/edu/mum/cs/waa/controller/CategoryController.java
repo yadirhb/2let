@@ -47,7 +47,7 @@ public class CategoryController {
     }
 
 
-    @RequestMapping(value="itemManagement/saveCategory", method = RequestMethod.POST)
+    @RequestMapping(value="/saveCategory", method = RequestMethod.POST)
     public String save(@ModelAttribute("newCategory") Category category)
     {
         //Save the new category

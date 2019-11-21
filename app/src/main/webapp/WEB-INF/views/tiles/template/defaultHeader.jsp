@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
 <nav class="navbar navbar-fixed-top">
     <div class="container">
         <security:authorize access="isAnonymous()">
@@ -19,5 +20,13 @@
         <a href="<spring:url value='/employees/list' />" class="btn btn-default">
             <span class="glyphicon-hand-left glyphicon"></span> Go to Company
         </a>
+
+
+
+            <a class="dropdown-item" href="?lang=en"><spring:message code="app.lang.english"/></a>|
+            <a class="dropdown-item" href="?lang=fr"><spring:message code="app.lang.french"/></a>
+
+
     </div>
+
 </nav>
