@@ -1,4 +1,6 @@
 package edu.mum.cs.waa.domain;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
@@ -20,8 +22,8 @@ public class Category {
         this.code = code;
     }
 
-    @JoinColumn
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+    @OneToMany(mappedBy="category",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Item> items;
 
     public long getId() {

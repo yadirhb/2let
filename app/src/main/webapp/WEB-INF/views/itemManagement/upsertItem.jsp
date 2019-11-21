@@ -18,7 +18,7 @@
 		</div>
 	</section>
 	<section class="container">
-		<form:form  action="/saveCategory" modelAttribute="newCategory" class="form-horizontal" method="post"  >
+		<form:form  action="../saveCategory" modelAttribute="newCategory" class="form-horizontal" method="post"  >
 			<fieldset>
 				<legend>New Category</legend>
 

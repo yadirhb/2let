@@ -18,7 +18,7 @@
     </div>
 </section>
 <section class="container">
-    <a href="<spring:url value='upsertCategory' />" class="btn btn-default pull-right"> Add New Category</a>
+    <a href="<spring:url value='/upsertCategory' />" class="btn btn-default pull-right"> Add New Category</a>
     <table>
 <thead>
 <tr>
@@ -37,7 +37,7 @@
                 <td><c:out value="${category.description}"/></td>
                 <td><c:out value="${category.code}"/></td>
                 <td><a href="<spring:url value='/upsertCategory/${category.id}' />" class="btn btn-default pull-right"> update</a></td>
-                <td><a href="<spring:url value='/delete/${category.id}' />" class="btn btn-default pull-right"> delete</a></td>
+                <td><a href="<spring:url value='/deleteCategory/${category.id}'  />" class="btn btn-default pull-right" onclick="return confirm('Are you sure you want to delete ${category.name}?')"> delete</a></td>
             </tr>
         </c:forEach>
 
