@@ -1,6 +1,9 @@
 package edu.mum.cs.waa.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -8,7 +11,10 @@ public class Center {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @NotEmpty
+    @Size(min = 3,max = 50,message = "{Size.Center.name.validation}")
     private String name;
+    @NotEmpty
     private String description;
     private Status status;
 
@@ -19,6 +25,9 @@ public class Center {
     @JoinColumn(unique = true)
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<User> users;
+
+    public Center() {
+    }
 
     public long getId() {
         return id;

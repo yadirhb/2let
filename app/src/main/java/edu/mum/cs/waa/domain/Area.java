@@ -15,6 +15,9 @@ public class Area {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Center> centers;
 
+    public Area() {
+    }
+
     public long getId() {
         return id;
     }
