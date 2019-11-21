@@ -16,7 +16,7 @@ public class Center {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Category> categories;
 
-    @JoinColumn(unique = true)
+    @JoinColumn(unique = true, name = "center_id")
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<User> users;
 
