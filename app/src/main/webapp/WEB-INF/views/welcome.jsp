@@ -24,8 +24,14 @@
             <a href="<spring:url  value="/dologout" />"
                class="btn btn-danger btn-mini pull-right">Logout</a>
             </security:authorize>
+
+                <a class="dropdown-item" href="?lang=en"><spring:message code="app.lang.english"/></a>|
+                <a class="dropdown-item" href="?lang=fr"><spring:message code="app.lang.french"/></a>
         </p>
     </div>
+
+
+
 </nav>
 <section class="mainContainer">
     <div class="jumbotron">
