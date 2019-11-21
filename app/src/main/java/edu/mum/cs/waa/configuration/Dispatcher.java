@@ -1,6 +1,6 @@
 package edu.mum.cs.waa.configuration;
 
-import edu.mum.cs.waa.interceptor.NoticeInterceptor;
+import edu.mum.cs.waa.interceptor.PerformanceMonitorInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,11 +11,11 @@ import org.springframework.core.env.Environment;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
-import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @EnableWebMvc
 @Configuration
@@ -64,7 +64,13 @@ public class Dispatcher extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new NoticeInterceptor()).addPathPatterns("/employees/list");
+
+		PerformanceMonitorInterceptor monitorInterceptor = new PerformanceMonitorInterceptor();
+		registry.addInterceptor(monitorInterceptor);
+
+		LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+		localeChangeInterceptor.setParamName("language");
+		registry.addInterceptor(localeChangeInterceptor);
 	}
 
 	@Bean(name = "messageSource")
