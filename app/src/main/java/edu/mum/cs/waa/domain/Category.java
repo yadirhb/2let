@@ -8,8 +8,17 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    private String code;
     private String description;
     private Status status;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     @JoinColumn
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
