@@ -15,6 +15,9 @@ public class Chain {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Area> areas;
 
+    public Chain() {
+    }
+
     public long getId() {
         return id;
     }
