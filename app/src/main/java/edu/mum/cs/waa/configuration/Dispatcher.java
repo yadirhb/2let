@@ -72,8 +72,6 @@ public class Dispatcher extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new NoticeInterceptor()).addPathPatterns("/employees/list");
-
 		LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
 		localeChangeInterceptor.setParamName("lang");
 		PerformanceMonitorInterceptor monitorInterceptor = new PerformanceMonitorInterceptor();
