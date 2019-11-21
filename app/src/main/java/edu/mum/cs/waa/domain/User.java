@@ -1,9 +1,11 @@
 package edu.mum.cs.waa.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.mum.cs.waa.validation.UniqueEmail;
 import edu.mum.cs.waa.validation.UniqueUsername;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -17,6 +19,7 @@ import java.util.List;
 
 @Entity(name = "users")
 public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,6 +30,7 @@ public class User implements Serializable {
     private String username;
 
     @Column(name = "password", nullable = false)
+    @JsonIgnore
     private String password;
 
     private Boolean enabled = false;
@@ -43,6 +47,7 @@ public class User implements Serializable {
     private String lastName;
 
     private String imageUrl;
+    @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
     private LocalDateTime dateCreated;
     private Status status = Status.DISABLED;
 
