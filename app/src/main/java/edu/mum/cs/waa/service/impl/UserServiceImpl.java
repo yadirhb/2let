@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService {
 
         return users;
     }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return repository.findUserByEmail(email);
+    }
 }

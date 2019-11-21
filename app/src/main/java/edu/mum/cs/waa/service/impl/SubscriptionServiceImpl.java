@@ -8,17 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
-import javax.validation.Validator;
-import java.util.Set;
 
 @Service
 @Transactional
 public class SubscriptionServiceImpl implements SubscriptionService {
-    @Autowired
-    private Validator validator;
 
     @Autowired
     private SubscriptionRepository subscriptionRepository;
@@ -30,9 +24,9 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
     @Override
     public Subscription requestMembership(@Valid Subscription subscription) {
-        Set<ConstraintViolation<Subscription>> violations = validator.validate(subscription);
+       /* Set<ConstraintViolation<Subscription>> violations = validator.validate(subscription);
 
-        if (!violations.isEmpty()) throw new ConstraintViolationException(violations);
+        if (!violations.isEmpty()) throw new ConstraintViolationException(violations);*/
         return subscriptionRepository.save(subscription);
     }
 }

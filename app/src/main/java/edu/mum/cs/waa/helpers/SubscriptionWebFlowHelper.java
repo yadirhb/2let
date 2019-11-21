@@ -7,18 +7,18 @@ import edu.mum.cs.waa.service.RoleService;
 import edu.mum.cs.waa.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
-import javax.validation.Validator;
 import java.util.Set;
 
 @Component
 public class SubscriptionWebFlowHelper {
 
     @Autowired
-    private Validator validator;
+    private LocalValidatorFactoryBean validator;
 
     @Autowired
     private SubscriptionService subscriptionService;

@@ -1,6 +1,5 @@
 package edu.mum.cs.waa.domain;
 
-import edu.mum.cs.waa.repository.SubscriptionRepository;
 import edu.mum.cs.waa.validation.UniqueEmail;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -31,7 +30,7 @@ public class User implements Serializable {
 
     @NotEmpty
     @Email
-    @UniqueEmail
+    @UniqueEmail(message = "This email is already registered.")
     private String email;
 
     @NotEmpty

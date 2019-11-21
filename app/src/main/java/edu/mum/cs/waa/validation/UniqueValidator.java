@@ -1,6 +1,7 @@
 package edu.mum.cs.waa.validation;
 
 import edu.mum.cs.waa.domain.User;
+import edu.mum.cs.waa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
