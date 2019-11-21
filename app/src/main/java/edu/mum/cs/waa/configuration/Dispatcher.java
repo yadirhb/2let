@@ -1,6 +1,6 @@
 package edu.mum.cs.waa.configuration;
 
-import edu.mum.cs.waa.interceptor.NoticeInterceptor;
+import edu.mum.cs.waa.interceptor.PerformanceMonitorInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -76,6 +76,9 @@ public class Dispatcher extends WebMvcConfigurerAdapter {
 
 		LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
 		localeChangeInterceptor.setParamName("lang");
+		PerformanceMonitorInterceptor monitorInterceptor = new PerformanceMonitorInterceptor();
+		registry.addInterceptor(monitorInterceptor);
+
 		registry.addInterceptor(localeChangeInterceptor);
 	}
 
