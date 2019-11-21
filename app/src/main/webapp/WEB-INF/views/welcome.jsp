@@ -12,7 +12,6 @@
 <body>
 <nav>
     <div class="container">
-        <span>Welcome page</span>
         <security:authorize access="isAnonymous()">
             <!-- WHICH ONE? depends on basic form OR CUSTOM -->
             <!--a href="<spring:url
