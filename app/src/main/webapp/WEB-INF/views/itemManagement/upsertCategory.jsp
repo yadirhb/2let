@@ -18,7 +18,7 @@
 		</div>
 	</section>
 	<section class="container">
-		<form:form  action="/saveCategory" modelAttribute="newCategory" class="form-horizontal" method="post"  >
+		<form:form  action="saveCategory" modelAttribute="newCategory" class="form-horizontal" method="post"  >
 			<fieldset>
 				<legend>New Category</legend>
 
@@ -60,6 +60,7 @@
 
  				<div class="form-group">
 					<div class="col-lg-offset-2 col-lg-10">
+						<form:hidden path="id" id="id"/>
 						<input type="submit" id="btnSave" class="btn btn-primary" value ="Save"/>
 					</div>
 				</div>
