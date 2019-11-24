@@ -42,3 +42,42 @@ footer{
 .primary {
     color: darkblue;
 }
+
+.odd{
+    color: white;
+    background-color: pink;
+}
+
+.even{
+    color: pink;
+    background-color: gray;
+}
+
+.div{
+    background-color: #FFFFAA;
+}
+
+.loader{
+    /*align-content: center;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: blink;
+    text-blink: true;
+}
+
+li{
+    padding: 2px 8px 2px 8px ;
+    border: solid #FFAAAA 1px;
+    border-radius: 10px;
+    list-style: none;
+}
+
+li:hover{
+    background: #FFAAAA;
+    color: white;
+}
+
+li:hover > a{
+     color: white;
+ }
