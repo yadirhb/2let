@@ -1,8 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Duncan
-  Date: 20/11/2019
-  Time: 14:48
-  To change this template use File | Settings | File Templates.
---%>
-<p>Footer</p>
+<div class="pull-left">
+    <li>Contact Us</li>
+    <li>Feedback</li>
+</div>
+<div class="pull-right">
+    <li>+1 555-000-0000</li>
+    <li>SiteMap</li>
+</div>
